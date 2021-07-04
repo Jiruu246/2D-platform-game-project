@@ -1,0 +1,13 @@
+        self.tiles_list = []        
+
+        for x in range(self.width):
+            for y in range(self.height):
+                tile = self.tiles[x][y]
+                if tile:
+                    i = tiles_name[tile]
+                    img = self.terrain.tile_set[i]
+                    image_rect = img.get_rect()
+                    image_rect.x = x * BLOCK_SIZE
+                    image_rect.y = y * BLOCK_SIZE
+                    tile = (img, image_rect)
+                    self.tiles_list.append(tile)

@@ -1,0 +1,46 @@
+air 0
+upleft dirt 1
+grass 2
+ground grass 3
+float grass1 4
+wood 5
+secondlevel grass 6
+deadgrass 7
+two side grass with flower 8
+iner grass 9
+left down grass 10
+left side grass with flower 11
+topleft hard block 12
+left side grass no flower 13
+top right hard block 14
+left face dirt 15
+bottom left hard block 16
+bottom left dirt 17
+bottom right hard block 18
+innerdirt1 19
+top right dirt 20 
+single hard block 21 
+right face dirt 22
+bottom right dirt 23
+innerdirt2 24
+top left skull 25
+top left rock dirt 26
+top right skull 27
+top right rock dirt 28
+bottom left skull 29
+bottom right float grass 30
+right grass with flower 31
+inner grass with leaf 32
+inner blank dirt 33
+laders 34
+grass with small leaf 35
+top right grass 36
+top left grass 37
+bottom grass 38
+bottom left grass 39
+bottom right grass 40 // repeat 30
+Left_side_wall 41
+sign 42
+small tree 43
+bottom right skull 44
+surfgrass2 45
