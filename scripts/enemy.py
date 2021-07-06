@@ -8,7 +8,9 @@ from scripts.terrain import BLOCK_SIZE
 class Enemy(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.size = 96
+        self.size = 96 # image size
+        self.width = 50 # the hitbox width  
+        self.height = 96 # the hitbox height
         self.health = 5
         self.speed = 2
         self.vision = 500
@@ -24,10 +26,9 @@ class Enemy(pygame.sprite.Sprite):
         self.enemy_jumpleft = Spritesheet('media/enemy_1_jump_left.png').load_spritesheet(self.size, self.size)
 
         self.sprite = self.enemy_standright
-        self.rect = self.sprite[0].get_rect()
-        self.rect.x = x
-        self.rect.y = y 
-        self.hit_box = pygame.Rect(x + 10, y, 76, 96)
+        self.rect = pygame.Rect(x, y, self.width, self.height)
+        self.hitbox_offset_x = (self.size - self.width)//2
+        
 
         self.dir = 1
         self.moving = True
@@ -117,6 +118,5 @@ class Enemy(pygame.sprite.Sprite):
 
     def draw(self, off_set):
         frame = pygame.time.get_ticks() // 180 % len(self.sprite)
-        screen.blit(self.sprite[frame], (self.rect.x + off_set[0], self.rect.y + off_set[1]))
+        screen.blit(self.sprite[frame], (self.rect.x - self.hitbox_offset_x + off_set[0], self.rect.y + off_set[1]))
         pygame.draw.rect(screen, (255, 255, 255), (self.rect.x + off_set[0], self.rect.y + off_set[1], self.rect.width, self.rect.height), 2)
-        pygame.draw.rect(screen, (255, 255, 255), (self.rect.x + 10 + off_set[0], self.rect.y + off_set[1], self.hit_box.width, self.hit_box.height), 2)

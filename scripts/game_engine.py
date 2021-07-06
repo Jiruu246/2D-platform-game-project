@@ -118,8 +118,8 @@ class GameEngine():
 
     
     def ground(self, obj):
-        tile_x1 = ((obj.rect.left + 20)//BLOCK_SIZE)
-        tile_x2 = ((obj.rect.right - 20)//BLOCK_SIZE)
+        tile_x1 = ((obj.rect.left)//BLOCK_SIZE)
+        tile_x2 = ((obj.rect.right)//BLOCK_SIZE)
         tile_y = (obj.rect.bottom//BLOCK_SIZE)
         for tile_x in range(tile_x1, tile_x2 + 1):
             if self.map.tiles[tile_x][tile_y][0] not in self.notsolid:
@@ -145,8 +145,8 @@ class GameEngine():
     
 
     def solid_overhead(self, obj):
-        tile_x1 = ((obj.rect.left + 20)//BLOCK_SIZE)
-        tile_x2 = ((obj.rect.right - 20)//BLOCK_SIZE)
+        tile_x1 = ((obj.rect.left)//BLOCK_SIZE)
+        tile_x2 = ((obj.rect.right)//BLOCK_SIZE)
         tiles_y = ((obj.rect.bottom)//BLOCK_SIZE)
         for tile_x in range(tile_x1, tile_x2 + 1):
             if self.map.tiles[tile_x][tiles_y -2][0] not in self.notsolid:

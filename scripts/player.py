@@ -5,7 +5,7 @@ from scripts.sprtiesheet import Spritesheet
 from scripts.layer import *
 
 PLAYER_SIZE = 96
-PLAYER_WIDTH = 50
+PLAYER_WIDTH = 65
 PLAYER_VEL = 4
 DELAY_MOVE = 3
 JUMP = 20
@@ -22,10 +22,11 @@ class Player:
         self.fall_right = Spritesheet('media/player_1_fall_right.png').load_spritesheet(PLAYER_SIZE, PLAYER_SIZE)
         self.fall_left = Spritesheet('media/player_1_fall_left.png').load_spritesheet(PLAYER_SIZE, PLAYER_SIZE)
 
+        x = 100
+        y = 500
         self.sprite = self.stand_right
-        self.rect = self.sprite[0].get_rect()
-        self.rect.x = 100
-        self.rect.y = 500
+        self.rect = pygame.Rect(x, y, PLAYER_WIDTH, PLAYER_SIZE)
+        self.hitbox_offset_x = (PLAYER_SIZE - PLAYER_WIDTH)//2
         self.maxhealth = 10.0 #set in decimal
         self.health = self.maxhealth
 
@@ -118,5 +119,5 @@ class Player:
     def draw(self, off_set):
         frame = pygame.time.get_ticks() // 180 % len(self.sprite)
     
-        screen.blit(self.sprite[frame], (self.rect.x + off_set[0], self.rect.y + off_set[1]))
+        screen.blit(self.sprite[frame], (self.rect.x - self.hitbox_offset_x + off_set[0], self.rect.y + off_set[1]))
         pygame.draw.rect(screen, (255, 255, 255), (self.rect.x + off_set[0], self.rect.y + off_set[1], self.rect.width, self.rect.height), 2)
